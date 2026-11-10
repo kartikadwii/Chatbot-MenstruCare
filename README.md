@@ -31,3 +31,14 @@ berbasis teks.
 - JSON
 - CSV
 - Pytest
+
+## Screenshot Aplikasi
+
+### 1. Halaman Beranda
+![Beranda MenstruCare](screenshot_hasil/beranda.png)
+
+### 2. Halaman Chatbot
+![Chatbot MenstruCare](screenshot_hasil/chatbot.png)
+
+### 3. Halaman Laporan
+![Laporan MenstruCare](screenshot_hasil/laporan.png)
