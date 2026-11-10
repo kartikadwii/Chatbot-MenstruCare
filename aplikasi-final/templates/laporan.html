@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block title %}Laporan | MenstruCare{% endblock %}
+
+{% block content %}
+
+<section class="admin-page">
+    <div class="container">
+
+        <div class="admin-title">
+            <h1>Laporan MenstruCare 🌸</h1>
+            <p>Ringkasan aktivitas dan performa chatbot MenstruCare.</p>
+        </div>
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <h3>Total Pertanyaan</h3>
+                <div class="number" id="total-messages">0</div>
+            </div>
+
+            <div class="stat-card">
+                <h3>Pertanyaan Dikenali</h3>
+                <div class="number" id="recognized">0</div>
+            </div>
+
+            <div class="stat-card">
+                <h3>Tidak Dikenali</h3>
+                <div class="number" id="unknown">0</div>
+            </div>
+
+            <div class="stat-card">
+                <h3>Tingkat Pengenalan</h3>
+                <div class="number" id="accuracy">0%</div>
+            </div>
+
+        </div>
+
+        <div class="admin-panel">
+            <h2>Statistik Pertanyaan</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Intent</th>
+                        <th>Jumlah Pertanyaan</th>
+                    </tr>
+                </thead>
+
+                <tbody id="intent-table">
+                    <tr>
+                        <td colspan="2">Memuat data...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <br>
+
+        <div class="admin-panel">
+            <h2>Pertanyaan Belum Dikenali</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Pertanyaan</th>
+                        <th>Waktu</th>
+                    </tr>
+                </thead>
+
+                <tbody id="unknown-table">
+                    <tr>
+                        <td colspan="3">Memuat data...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script>
+async function loadReport() {
+    try {
+        const response = await fetch("/api/admin/stats");
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+            throw new Error("Gagal mengambil laporan.");
+        }
+
+        const summary = data.summary;
+
+        document.getElementById("total-messages").textContent =
+            summary.total_pesan ?? 0;
+
+        document.getElementById("recognized").textContent =
+            (summary.total_pesan ?? 0) - (summary.tidak_dikenali ?? 0);
+
+        document.getElementById("unknown").textContent =
+            summary.tidak_dikenali ?? 0;
+
+        document.getElementById("accuracy").textContent =
+            (summary.persen_dikenali ?? 0) + "%";
+
+        const intentTable = document.getElementById("intent-table");
+        intentTable.innerHTML = "";
+
+        if (data.intents.length === 0) {
+            intentTable.innerHTML =
+                '<tr><td colspan="2">Belum ada data.</td></tr>';
+        } else {
+            data.intents.forEach(item => {
+                const row = document.createElement("tr");
+
+                const intentCell = document.createElement("td");
+                intentCell.textContent = item.intent;
+
+                const countCell = document.createElement("td");
+                countCell.textContent = item.jumlah;
+
+                row.appendChild(intentCell);
+                row.appendChild(countCell);
+                intentTable.appendChild(row);
+            });
+        }
+
+        const unknownTable = document.getElementById("unknown-table");
+        unknownTable.innerHTML = "";
+
+        if (data.unknown_questions.length === 0) {
+            unknownTable.innerHTML =
+                '<tr><td colspan="3">Belum ada pertanyaan.</td></tr>';
+        } else {
+            data.unknown_questions.forEach((item, index) => {
+                const row = document.createElement("tr");
+
+                const numberCell = document.createElement("td");
+                numberCell.textContent = index + 1;
+
+                const questionCell = document.createElement("td");
+                questionCell.textContent = item.text;
+
+                const timeCell = document.createElement("td");
+                timeCell.textContent = item.created_at;
+
+                row.appendChild(numberCell);
+                row.appendChild(questionCell);
+                row.appendChild(timeCell);
+
+                unknownTable.appendChild(row);
+            });
+        }
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+loadReport();
+</script>
+
+{% endblock %}

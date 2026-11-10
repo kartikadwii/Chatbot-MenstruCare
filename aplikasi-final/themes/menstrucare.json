@@ -1,0 +1,196 @@
+{
+    "id": "menstrucare",
+    "name": "Chatbot Edukasi Menstruasi",
+    "bot_name": "MenstruCare",
+    "avatar": "🌸",
+    "color": "#be5685",
+    "description": "Chatbot edukasi menstruasi untuk membantu pengguna memahami kesehatan menstruasi.",
+    "greeting": "Halo! Aku MenstruCare. 🌸 Ada yang ingin kamu tanyakan tentang menstruasi hari ini?",
+    "suggestions": [
+        "Apa itu menstruasi?",
+        "Berapa hari siklus menstruasi normal?",
+        "Bagaimana cara mengatasi nyeri haid?",
+        "Apa itu PMS?",
+        "Mengapa menstruasi terlambat?"
+    ],
+    "fallback": [
+        "Maaf, aku belum memahami pertanyaanmu. Coba gunakan kalimat yang lebih sederhana atau tanyakan hal lain tentang menstruasi.",
+        "Aku belum menemukan jawaban yang sesuai. Kamu bisa bertanya tentang siklus menstruasi, nyeri haid, PMS, atau kebersihan menstruasi."
+    ],
+    "intents": [
+        {
+            "tag": "salam",
+            "patterns": [
+                "Halo",
+                "Hai",
+                "Selamat pagi",
+                "Selamat siang",
+                "Selamat sore",
+                "Selamat malam",
+                "Hai MenstruCare"
+            ],
+            "responses": [
+                "Halo! 🌸 Selamat datang di MenstruCare. Ada yang ingin kamu tanyakan tentang menstruasi?",
+                "Hai! Senang bisa menemanimu. Yuk, kenali lebih jauh tentang kesehatan menstruasi."
+            ]
+        },
+        {
+            "tag": "pengertian_menstruasi",
+            "patterns": [
+                "Apa itu menstruasi?",
+                "Apa pengertian haid?",
+                "Jelaskan tentang menstruasi",
+                "Apa yang dimaksud dengan menstruasi?",
+                "Mengapa perempuan mengalami menstruasi?"
+            ],
+            "responses": [
+                "Menstruasi adalah proses keluarnya darah dari vagina akibat peluruhan lapisan dinding rahim ketika tidak terjadi kehamilan. Proses ini merupakan bagian dari siklus reproduksi perempuan."
+            ]
+        },
+        {
+            "tag": "siklus_menstruasi",
+            "patterns": [
+                "Berapa hari siklus menstruasi normal?",
+                "Normalnya siklus haid berapa hari?",
+                "Kapan menstruasi berikutnya?",
+                "Bagaimana menghitung siklus menstruasi?",
+                "Apa itu siklus menstruasi?"
+            ],
+            "responses": [
+                "Siklus menstruasi orang dewasa umumnya berlangsung sekitar 21–35 hari. Siklus dihitung dari hari pertama menstruasi hingga hari pertama menstruasi berikutnya."
+            ]
+        },
+        {
+            "tag": "lama_menstruasi",
+            "patterns": [
+                "Berapa lama menstruasi berlangsung?",
+                "Normalnya haid berapa hari?",
+                "Berapa hari biasanya menstruasi?",
+                "Kapan menstruasi selesai?",
+                "Apakah haid selama tujuh hari normal?"
+            ],
+            "responses": [
+                "Menstruasi umumnya berlangsung selama 2–7 hari. Lama menstruasi dapat berbeda pada setiap orang."
+            ]
+        },
+        {
+            "tag": "nyeri_haid",
+            "patterns": [
+                "Mengapa perut terasa sakit saat haid?",
+                "Bagaimana cara mengatasi nyeri menstruasi?",
+                "Perut saya kram saat menstruasi",
+                "Apa penyebab nyeri haid?",
+                "Bagaimana mengurangi sakit perut saat haid?"
+            ],
+            "responses": [
+                "Nyeri haid dapat terjadi karena kontraksi otot rahim. Kamu bisa mencoba kompres hangat pada perut dan olahraga ringan untuk membantu mengurangi rasa tidak nyaman. Jika nyeri sangat berat, sebaiknya konsultasikan dengan tenaga kesehatan."
+            ]
+        },
+        {
+            "tag": "pms",
+            "patterns": [
+                "Apa itu PMS?",
+                "Mengapa emosi berubah sebelum haid?",
+                "Apa saja gejala sebelum menstruasi?",
+                "Mengapa mudah marah sebelum menstruasi?",
+                "Apa penyebab PMS?"
+            ],
+            "responses": [
+                "PMS atau Premenstrual Syndrome adalah kumpulan gejala fisik dan emosional yang muncul sebelum menstruasi. Gejalanya dapat berupa perubahan suasana hati, kembung, nyeri payudara, dan mudah lelah."
+            ]
+        },
+        {
+            "tag": "telat_haid",
+            "patterns": [
+                "Mengapa menstruasi saya terlambat?",
+                "Apa penyebab telat datang bulan?",
+                "Haid saya belum datang",
+                "Kenapa saya belum menstruasi?",
+                "Apa penyebab siklus haid tidak teratur?"
+            ],
+            "responses": [
+                "Menstruasi terlambat dapat disebabkan oleh stres, perubahan berat badan, perubahan hormon, kehamilan, atau kondisi kesehatan tertentu. Jika keterlambatan berlangsung atau disertai keluhan lain, konsultasikan dengan tenaga kesehatan."
+            ]
+        },
+        {
+            "tag": "warna_darah_haid",
+            "patterns": [
+                "Mengapa darah menstruasi berwarna cokelat?",
+                "Apa arti warna darah haid?",
+                "Kenapa darah haid berwarna merah tua?",
+                "Apakah darah haid berwarna hitam normal?",
+                "Mengapa warna darah menstruasi berbeda?"
+            ],
+            "responses": [
+                "Warna darah menstruasi dapat bervariasi dari merah terang hingga cokelat tua. Warna cokelat dapat terjadi karena darah membutuhkan waktu lebih lama untuk keluar dari rahim. Namun, jika disertai bau tidak biasa, nyeri berat, atau keluhan lain, sebaiknya periksakan diri."
+            ]
+        },
+        {
+            "tag": "kebersihan_menstruasi",
+            "patterns": [
+                "Berapa kali harus mengganti pembalut?",
+                "Bagaimana menjaga kebersihan saat haid?",
+                "Kapan sebaiknya mengganti pembalut?",
+                "Bagaimana cara menjaga kebersihan menstruasi?",
+                "Apakah harus mencuci tangan setelah mengganti pembalut?"
+            ],
+            "responses": [
+                "Gantilah pembalut setiap beberapa jam atau lebih sering jika sudah penuh. Jaga kebersihan area intim dan biasakan mencuci tangan sebelum serta sesudah mengganti pembalut."
+            ]
+        },
+        {
+            "tag": "makanan_saat_haid",
+            "patterns": [
+                "Makanan apa yang baik saat menstruasi?",
+                "Bolehkah minum es saat haid?",
+                "Makanan apa yang mengandung zat besi?",
+                "Apa makanan yang bagus ketika menstruasi?",
+                "Apa yang sebaiknya dimakan saat haid?"
+            ],
+            "responses": [
+                "Saat menstruasi, konsumsilah makanan bergizi seimbang seperti sayuran, buah-buahan, protein, dan makanan yang mengandung zat besi. Minum air putih yang cukup juga penting. Minuman dingin boleh dikonsumsi saat menstruasi."
+            ]
+        },
+        {
+            "tag": "olahraga_saat_haid",
+            "patterns": [
+                "Bolehkah olahraga saat menstruasi?",
+                "Apakah yoga aman saat haid?",
+                "Olahraga apa yang cocok ketika menstruasi?",
+                "Bolehkah berjalan kaki saat haid?",
+                "Apakah olahraga memperparah nyeri haid?"
+            ],
+            "responses": [
+                "Olahraga ringan seperti berjalan kaki, yoga, dan peregangan umumnya boleh dilakukan saat menstruasi. Sesuaikan aktivitas dengan kondisi tubuh dan istirahat jika merasa tidak nyaman."
+            ]
+        },
+        {
+            "tag": "gangguan_menstruasi",
+            "patterns": [
+                "Kapan harus memeriksakan gangguan menstruasi?",
+                "Mengapa darah haid terlalu banyak?",
+                "Nyeri haid saya sangat parah",
+                "Apakah menstruasi tidak teratur berbahaya?",
+                "Kapan harus pergi ke dokter saat menstruasi?"
+            ],
+            "responses": [
+                "Jika mengalami perdarahan menstruasi yang sangat banyak, nyeri yang berat, atau gangguan menstruasi yang mengganggu aktivitas, sebaiknya periksakan diri kepada tenaga kesehatan."
+            ]
+        },
+        {
+            "tag": "salam_penutup",
+            "patterns": [
+                "Terima kasih",
+                "Makasih",
+                "Sampai jumpa",
+                "Dadah",
+                "Selamat tinggal",
+                "Terima kasih MenstruCare"
+            ],
+            "responses": [
+                "Sama-sama! 🌸 Semoga informasi dari MenstruCare bermanfaat. Jaga kesehatanmu, ya!",
+                "Senang bisa membantu. Sampai jumpa dan tetap jaga kesehatan!"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}Chatbot | MenstruCare{% endblock %}
+
+{% block content %}
+
+<section class="chat-page">
+    <div class="container">
+
+        <div class="chat-container">
+
+            <div class="chat-header">
+                <div>
+                    <h2>🌸 MenstruCare</h2>
+                    <p>Asisten Edukasi Menstruasi</p>
+                </div>
+
+                <button type="button" id="clear-chat">
+                    Hapus Chat
+                </button>
+            </div>
+
+            <div class="chat-body" id="chat-body">
+                <div class="message bot">
+                    <div class="message-content">
+                        Halo! Aku MenstruCare. 🌸
+                        <br>
+                        Ada yang ingin kamu tanyakan tentang menstruasi hari ini?
+                    </div>
+                </div>
+            </div>
+
+            <div class="suggestions">
+                {% for suggestion in theme.suggestions %}
+                    <button
+                        type="button"
+                        class="suggestion-btn"
+                        data-message="{{ suggestion }}"
+                    >
+                        {{ suggestion }}
+                    </button>
+                {% endfor %}
+            </div>
+
+            <div class="chat-footer">
+                <form class="chat-form" id="chat-form">
+                    <input
+                        type="text"
+                        id="message-input"
+                        placeholder="Tulis pertanyaanmu di sini..."
+                        autocomplete="off"
+                        maxlength="1000"
+                        required
+                    >
+
+                    <button
+                        type="submit"
+                        class="send-btn"
+                        id="send-btn"
+                    >
+                        ➤
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+        <p style="text-align:center; margin-top:20px; color:#927d88; font-size:12px;">
+            Informasi MenstruCare bersifat edukatif dan bukan pengganti konsultasi tenaga kesehatan.
+        </p>
+
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}
